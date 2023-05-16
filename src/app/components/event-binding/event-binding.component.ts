@@ -27,8 +27,6 @@ export class EventBindingComponent implements OnInit {
 
 
 
-
-
   constructor() { }
 
   ngOnInit(): void {

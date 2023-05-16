@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InterpolationComponent } from './interpolation.component';
 
 describe('InterpolationComponent', () => {
@@ -8,9 +7,9 @@ describe('InterpolationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InterpolationComponent ]
+      declarations: [InterpolationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,20 @@ describe('InterpolationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display tsVariable2 value in the second paragraph', () => {
+    const paragraphElement = fixture.nativeElement.querySelectorAll('p')[3];
+    expect(paragraphElement.textContent).toContain(component.tsVariable2);
+  });
+
+  it('should update tsVariable2 value in the component and reflect the change in the template', () => {
+    const newVariableValue = 'new text';
+    component.tsVariable2 = newVariableValue;
+    fixture.detectChanges();
+    const paragraphElement = fixture.nativeElement.querySelectorAll('p')[3];
+    expect(paragraphElement.textContent).toContain(newVariableValue);
   });
 });
