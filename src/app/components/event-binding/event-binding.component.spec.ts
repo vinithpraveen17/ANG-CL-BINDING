@@ -33,5 +33,6 @@ describe('EventBindingComponent', () => {
     fixture.detectChanges();
     const messageElement = fixture.nativeElement.querySelectorAll('p')[3];
     expect(messageElement.textContent).not.toContain('button 2 not clicked');
+    expect(messageElement.textContent).toContain('button 1 clicked!');
   });
 });
